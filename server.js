@@ -5,9 +5,10 @@ const app = express()
 
 const api = require('./route/api.js') 
 
+/*
 // [bg]
-var aryNotes = []
-
+// var aryNotes = []
+*/
 
 const PORT = process.env.PORT || 3001;
     app.use(express.json())
@@ -28,17 +29,17 @@ const PORT = process.env.PORT || 3001;
 
     })
 
-    
+/*   Edit note is handled by renderActiveNote  in index.js    
     app.get("/notes/:id", function(req,res) {
         // display json for the notes array indices of the provided id
-        console.log(req.params.id)
-        console.log("")
-        console.log(aryNotes)
-        console.log(notes)
+        // console.log(req.params.id)
+        // console.log("")
+        // console.log(aryNotes)
+        // console.log(notes)
 
         // res.json(notes[req.params.id]);
     });
-    
+*/    
 
     app.get('/', (req, res) => {
         console.log('index.html')

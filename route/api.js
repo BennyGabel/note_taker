@@ -19,9 +19,16 @@ function write(notes) {
 router.delete('/:id', (req, res) => {
   read().
   then((data)=>{
-    console.log(data)
-    console.log(req, "Req")
-    console.log(res, "Res")
+
+    console.log(req.params.id)
+    console.log('***** New Data w/o deleted will be ...')
+    //console.log(req, "Req")
+    //console.log(res, "Res")
+    newData = data.filter(x => x.id != req.params.id)
+    console.log(newData)
+
+
+
     /*
     const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
@@ -74,7 +81,7 @@ read().then(data => {
 
 }).then((data) => {
       // write to the file a new array with all the data
-      console.log(data)
+      // console.log(data)
     write(data)
     res.json(data)
 })
