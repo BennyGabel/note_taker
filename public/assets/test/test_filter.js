@@ -7,6 +7,7 @@ const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
     console.log(result);
 */
 
+// TO BE ADDED INTO ROUTE/API .... 
 ary = [{"id":"dd9d690c-52c2-4397-a882-bc81566e2390","title":"title 4","text":"note 4"},{"id":"87f7eb71-4cb4-4c5b-a068-e21cf0780e92","title":"note 2","text":"nrew note 2"}]
 console.log('=========');
 //console.log(ary, '</br>')

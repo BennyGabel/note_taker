@@ -21,6 +21,7 @@ router.delete('/:id', (req, res) => {
   then((data)=>{
 
     console.log(req.params.id)
+    console.log(data)
     console.log('***** New Data w/o deleted will be ...')
     //console.log(req, "Req")
     //console.log(res, "Res")
