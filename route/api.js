@@ -51,7 +51,11 @@ router.delete('/:id', (req, res) => {
 
     fs.writeFileSync('./db/db.json', JSON.stringify(newNoteArray))
 
-    renderNoteList()
+    //res.sendFile(path.join(__dirname, './public/notes.html'))
+
+    // router.reload()
+    // res.sendFile(path.join(__dirname, './public/index.html'))
+    window.location.reload
 
   })
 })
