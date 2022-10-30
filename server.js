@@ -34,6 +34,7 @@ const PORT = process.env.PORT || 3001;
         console.log(req.params.id)
         console.log("")
         console.log(aryNotes)
+        console.log(notes)
 
         // res.json(notes[req.params.id]);
     });

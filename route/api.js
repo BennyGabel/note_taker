@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const fs = require('fs')
 const util = require('util')
+const { v4: uuidv4 } = require('uuid');   // Import uuid
+
 
 
 const asyncReadFile = util.promisify(fs.readFile)
@@ -14,6 +16,25 @@ function write(notes) {
     return asyncWriteFile('./db/db.json', JSON.stringify(notes))
 }
 
+router.delete('/:id', (req, res) => {
+  read().
+  then((data)=>{
+    console.log(data)
+    console.log(req, "Req")
+    console.log(res, "Res")
+    /*
+    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+    const result = words.filter(word => word.length > 6);
+    
+    console.log(result);
+    // expected output: Array ["exuberant", "destruction", "present"]
+    */
+
+  })
+})
+
+
 router.get('/', (req, res) => {
     // Read the file and get all the data
     read().
@@ -24,31 +45,22 @@ router.get('/', (req, res) => {
     // Once we parse it, we return it to the user/frontend
     res.json(allNotes)
 
-    aryNotes =  allNotes
+    // aryNotes =  allNotes
 
-    console.log(allNotes)
-
+    // console.log(allNotes)
 
     })
-
-
 })
-
-/*
-router.get("/notes/:id", function(req,res) {
-  // display json for the notes array indices of the provided id
-  console.log(req.params.id)
-
-  // res.json(notes[req.params.id]);
-});
-*/
 
 router.post('/', (req, res) => {
     // Get the data
+  var newId    = uuidv4()
   var newTitle = req.body.title
   var newText  = req.body.text
 
-  var newNote = {title: newTitle, text: newText}
+  // var newNote = {title: newTitle, text: newText}
+  var newNote = {id: newId, title: newTitle, text: newText}
+
   // Read the file again and get the data from the file
 read().then(data => {
       // combine the original data with the new data
