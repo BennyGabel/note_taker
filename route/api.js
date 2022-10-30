@@ -16,6 +16,8 @@ function write(notes) {
     return asyncWriteFile('./db/db.json', JSON.stringify(notes))
 }
 
+
+/*
 router.delete('/:id', (req, res) => {
   read().
   then((data)=>{
@@ -28,19 +30,33 @@ router.delete('/:id', (req, res) => {
     newData = data.filter(x => x.id != req.params.id)
     console.log(newData)
 
+  })
+})
+*/
 
-
-    /*
-    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
-    const result = words.filter(word => word.length > 6);
+router.delete('/:id', (req, res) => {
+  read().
+  then((data)=>{
+    let allNotes 
     
-    console.log(result);
-    // expected output: Array ["exuberant", "destruction", "present"]
-    */
+    try {
+      allNotes = [].concat(JSON.parse(data)) ;
+    } catch (err) {
+      allNotes = []
+    }
+
+    // console.log(allNotes, req.params.id)
+    let newNoteArray = allNotes.filter((data) => data.id != req.params.id)
+    // console.log(newNoteArray)
+
+    fs.writeFileSync('./db/db.json', JSON.stringify(newNoteArray))
+
+    renderNoteList()
 
   })
 })
+
+
 
 
 router.get('/', (req, res) => {
