@@ -22,13 +22,26 @@ router.get('/', (req, res) => {
      let allNotes = [].concat( JSON.parse(data))
 
     // Once we parse it, we return it to the user/frontend
-     res.json(allNotes)
+    res.json(allNotes)
+
+    aryNotes =  allNotes
+
+    console.log(allNotes)
 
 
     })
 
 
 })
+
+/*
+router.get("/notes/:id", function(req,res) {
+  // display json for the notes array indices of the provided id
+  console.log(req.params.id)
+
+  // res.json(notes[req.params.id]);
+});
+*/
 
 router.post('/', (req, res) => {
     // Get the data
