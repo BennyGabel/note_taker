@@ -1,3 +1,5 @@
+const path = require('path')    // Library that allows to access absolute path
+
 /*
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
