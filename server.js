@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3001;
 
     app.get('/notes', (req, res) => {
         // res.sendFile('./public/notes.html')
-        console.log('Request All')
+        // console.log('Request All')
         res.sendFile(path.join(__dirname, './public/notes.html'))
 
     })

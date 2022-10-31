@@ -2,7 +2,7 @@ const router = require('express').Router()
 const fs = require('fs')
 const util = require('util')
 const { v4: uuidv4 } = require('uuid');   // Import uuid
-
+const path = require('path')    // Library that allows to access absolute path
 
 
 const asyncReadFile = util.promisify(fs.readFile)
@@ -55,7 +55,12 @@ router.delete('/:id', (req, res) => {
 
     // router.reload()
     // res.sendFile(path.join(__dirname, './public/index.html'))
-    window.location.reload
+    // window.location.reload
+
+         // Display index.html when all other routes are accessed
+    // app.get('*', function(req,res) {
+      res.sendFile(path.join(__dirname, "../public/index.html"));
+    // });
 
   })
 })
