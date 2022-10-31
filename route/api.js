@@ -16,24 +16,6 @@ function write(notes) {
     return asyncWriteFile('./db/db.json', JSON.stringify(notes))
 }
 
-
-/*
-router.delete('/:id', (req, res) => {
-  read().
-  then((data)=>{
-
-    console.log(req.params.id)
-    console.log(data)
-    console.log('***** New Data w/o deleted will be ...')
-    //console.log(req, "Req")
-    //console.log(res, "Res")
-    newData = data.filter(x => x.id != req.params.id)
-    console.log(newData)
-
-  })
-})
-*/
-
 router.delete('/:id', (req, res) => {
   read().
   then((data)=>{
@@ -51,13 +33,7 @@ router.delete('/:id', (req, res) => {
 
     fs.writeFileSync('./db/db.json', JSON.stringify(newNoteArray))
 
-    //res.sendFile(path.join(__dirname, './public/notes.html'))
-
-    // router.reload()
-    // res.sendFile(path.join(__dirname, './public/index.html'))
-    // window.location.reload
-
-         // Display index.html when all other routes are accessed
+    // Display index.html when all other routes are accessed
     // app.get('*', function(req,res) {
       res.sendFile(path.join(__dirname, "../public/index.html"));
     // });
@@ -78,10 +54,6 @@ router.get('/', (req, res) => {
     // Once we parse it, we return it to the user/frontend
     res.json(allNotes)
 
-    // aryNotes =  allNotes
-
-    // console.log(allNotes)
-
     })
 })
 
@@ -91,8 +63,8 @@ router.post('/', (req, res) => {
   var newTitle = req.body.title
   var newText  = req.body.text
 
-  // var newNote = {title: newTitle, text: newText}
-  var newNote = {id: newId, title: newTitle, text: newText}
+  // var newNote = {title: newTitle, text: newText}    Original
+  var newNote = {id: newId, title: newTitle, text: newText}   // id was added : am using package uuid to generate Ids
 
   // Read the file again and get the data from the file
 read().then(data => {
